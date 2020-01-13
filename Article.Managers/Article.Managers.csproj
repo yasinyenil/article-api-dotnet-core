@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Article.DataAccess.Abstracts\Article.DataAccess.Abstracts.csproj" />
+    <ProjectReference Include="..\Article.DataAccess.Concretes\Article.DataAccess.Concretes.csproj" />
+    <ProjectReference Include="..\Article.Models.EntitiesOfProjects\Article.Models.EntitiesOfProjects.csproj" />
+    <ProjectReference Include="..\Article.Models.OtherNecessaryModels\Article.Models.OtherNecessaryModels.csproj" />
+  </ItemGroup>
+
+</Project>

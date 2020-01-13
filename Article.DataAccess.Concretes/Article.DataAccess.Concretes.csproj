@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Article.Common\Article.Common.csproj" />
+    <ProjectReference Include="..\Article.DataAccess.Abstracts\Article.DataAccess.Abstracts.csproj" />
+  </ItemGroup>
+
+</Project>
