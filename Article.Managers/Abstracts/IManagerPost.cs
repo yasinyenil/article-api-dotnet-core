@@ -1,20 +1,23 @@
-﻿using Article.Models.OtherNecessaryModels.ResultModels;
+﻿using Article.Models.EntitiesOfProjects.Entities;
+using Article.Models.OtherNecessaryModels.ApiModels.PostModels;
+using Article.Models.OtherNecessaryModels.ResultModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Article.Managers.Abstracts
 {
-    public interface IManagerPost  
+    public interface IManagerPost : IDisposable
     {
-        #region New Codes
 
-        //ResultModel CreateNewUser(NewUserAPIModel newUserItem);
+        bool CreatePost(NewPostAPIModel newPostAPIModel);
 
-        //ResultUpdateUserAPIModel UpdateUser(UpdateUserAPIModel updateUserItem);
+        List<Post> ListPost();
 
-        //ResultListUserAPIModel GetUserById(Guid id);
+        Post GetPost(int id);
 
-        #endregion
+        bool UpdatePost(Post post);
+
+        bool DeletePost(int id);
     }
 }

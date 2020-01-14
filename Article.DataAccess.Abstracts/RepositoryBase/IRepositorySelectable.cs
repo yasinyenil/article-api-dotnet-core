@@ -15,7 +15,7 @@ namespace Article.DataAccess.Abstracts.RepositoryBase
         /// Herhangi bir sart olmadan tum kayitlari listeler.
         /// </summary>
         /// <returns></returns>
-        IEnumerable<T> GetAllItems();
+        List<T> GetAllItems();
 
         /// <summary>
         /// Verilen Where Case degeri / degerlerine gore tum kayitlari listeler.

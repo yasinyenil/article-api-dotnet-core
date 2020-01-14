@@ -1,10 +1,20 @@
-﻿using System;
+﻿using Article.Models.EntitiesOfProjects.Entities;
+using Article.Models.OtherNecessaryModels.ApiModels.CategoryModels;
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Article.Managers.Abstracts
 {
-    public interface IManagerCategory
+    public interface IManagerCategory :IDisposable
     {
+        bool CreateNewCategory(NewCategoryAPIModel newCategoryAPIModel);
+
+        List<Category> ListCategory();
+
+        Category GetCategory(int id);
+
+        bool UpdateCategory(int id);
+
+        bool DeleteCategory(int id);
     }
 }

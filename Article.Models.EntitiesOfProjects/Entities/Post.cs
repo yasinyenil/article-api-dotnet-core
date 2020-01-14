@@ -6,12 +6,15 @@ namespace Article.Models.EntitiesOfProjects.Entities
 {
     #region Internal usings
     using BaseEntity;
+    using System.ComponentModel.DataAnnotations;
 
     #endregion Internal usings
 
     public partial class Post : IBaseEntity
     {
+        [MaxLength(100)]
         public string Title { get; set; }
+        [MaxLength(4000)]
         public string Description { get; set; }
         public int UserId { get; set; }
         public int CategoryId { get; set; }

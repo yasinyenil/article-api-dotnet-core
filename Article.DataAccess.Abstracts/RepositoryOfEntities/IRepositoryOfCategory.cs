@@ -12,7 +12,7 @@ namespace Article.DataAccess.Abstracts.RepositoryOfEntities
     using RepositoryBase;
     #endregion Internal Usings
 
-    public interface IRepositoryOfCategory : IRepositorySelectable<Category>, IRepositoryUpdatable<Category>, IRepositoryInsertable<Category>
+    public interface IRepositoryOfCategory : IRepositorySelectable<Category>, IRepositoryUpdatable<Category>, IRepositoryInsertable<Category>, IRepositoryDeletable<Category>
     {
     }
 }

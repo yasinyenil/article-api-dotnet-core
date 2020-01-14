@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 #region Global Usings
 using Article.Managers.Abstracts;
 using Article.Managers.Concretes;
+using Article.Models.EntitiesOfProjects.DBContexts;
+using Microsoft.EntityFrameworkCore;
 #endregion
 
 namespace Article.Services.WebAPI
@@ -29,9 +31,11 @@ namespace Article.Services.WebAPI
             services.AddMvc()
                     .SetCompatibilityVersion(version: CompatibilityVersion.Version_2_2);
 
-            services.AddSingleton<IManagerUser, ManagerUser>();
-            services.AddSingleton<IManagerPost, ManagerPost>();
-            services.AddSingleton<IManagerCategory, ManagerCategory>();
+            services.AddDbContext<ArticleContext>(x => x.UseSqlServer("Server=(local); Initial Catalog=ArticleDB; Integrated Security=true;"));
+
+            services.AddTransient<IManagerUser, ManagerUser>();
+            services.AddTransient<IManagerPost, ManagerPost>();
+            services.AddTransient<IManagerCategory, ManagerCategory>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

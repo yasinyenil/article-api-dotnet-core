@@ -8,7 +8,7 @@ namespace Article.DataAccess.Abstracts.RepositoryOfEntities
     using RepositoryBase;
     #endregion Internal Usings
 
-    public interface IRepositoryOfPost : IRepositorySelectable<Post>, IRepositoryUpdatable<Post>, IRepositoryInsertable<Post>
+    public interface IRepositoryOfPost : IRepositorySelectable<Post>, IRepositoryUpdatable<Post>, IRepositoryInsertable<Post>, IRepositoryDeletable<Post>
     {
     }
 }

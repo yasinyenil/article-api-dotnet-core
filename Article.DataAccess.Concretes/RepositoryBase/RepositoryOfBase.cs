@@ -13,7 +13,7 @@ using Article.Models.EntitiesOfProjects.BaseEntity;
 
 namespace Article.DataAccess.Concretes.RepositoryBase
 {
-    public abstract class RepositoryOfBase<T> : IRepositoryInsertable<T>, IRepositorySelectable<T>, IRepositoryUpdatable<T>
+    public abstract class RepositoryOfBase<T> : IRepositoryInsertable<T>, IRepositorySelectable<T>, IRepositoryUpdatable<T>, IRepositoryDeletable<T>
         where T : class, IBaseEntity
     {
 
@@ -33,11 +33,11 @@ namespace Article.DataAccess.Concretes.RepositoryBase
 
         #region Select Functions
 
-        IEnumerable<T> IRepositorySelectable<T>.GetAllItems()
+        List<T> IRepositorySelectable<T>.GetAllItems()
         {
-            return Tools.TryCatch<IEnumerable<T>>(function: () =>
+            return Tools.TryCatch<List<T>>(function: () =>
             {
-                return this.DbSet.AsEnumerable();
+                return this.DbSet.ToList();
             },
             catchAndDo: (Exception ex) =>
             {
@@ -98,6 +98,15 @@ namespace Article.DataAccess.Concretes.RepositoryBase
         }
 
         #endregion Update Function(s) 
+
+        #region Delete Function(s)
+
+        T IRepositoryDeletable<T>.DeleteItem(T deletedItem)
+        {
+            return this.AttachItemToDbSet(itemToAdd: deletedItem, itemTransactionState: EntityState.Modified);
+        }
+
+        #endregion Delete Function(s)
 
 
         #region Private Function(s)
