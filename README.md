@@ -3,6 +3,7 @@
 Sql scripti eklenmiştir. Örnek 4-5 tane data vardır.
 
 Örnek Sorgu: Post oluşturmak için
+URL: {your localhost}/api/post/new-post
 Body:
 ```json
 {
@@ -12,8 +13,7 @@ Body:
 	"CategoryId":1
 }
 ```
-URL:
-{your localhost}/api/post/new-post
+
 
 ### Kullanılan Tasarım Desenleri
 - Generic Repository (CRUD işlemlerinin yapıldığı yerdir. Tip bağımsız halde çalışır.)
