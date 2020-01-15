@@ -45,6 +45,17 @@ namespace Article.DataAccess.Concretes.RepositoryBase
             });
         }
 
+        List<T> IRepositorySelectable<T>.GetAllActiveItems()
+        {
+            return Tools.TryCatch<List<T>>(function: () =>
+            {
+                return this.DbSet.Where(x=>x.IsActive == true).ToList();
+            },
+            catchAndDo: (Exception ex) =>
+            {
+                throw ex;
+            });
+        }
 
         IQueryable<T> IRepositorySelectable<T>.GetAllItems(Expression<Func<T, bool>> predicate)
         {

@@ -13,7 +13,7 @@ namespace Article.Managers.Abstracts
 
         Category GetCategory(int id);
 
-        bool UpdateCategory(int id);
+        bool UpdateCategory(Category category);
 
         bool DeleteCategory(int id);
     }

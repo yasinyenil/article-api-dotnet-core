@@ -54,12 +54,12 @@ namespace Article.Services.WebAPI.Controllers
 
 
         [HttpGet, Route(template: "get-all-user")]
-        public List<User> GetAllUser()
+        public IActionResult GetAllUser()
         {
             //Aslında burada DTO kullanmak gerekli ve map işleminin yapılması gerekli
             List<User> users = this.managerUser.ListUser();
 
-            return users;
+            return Ok(users);
         }
 
         /// <summary>

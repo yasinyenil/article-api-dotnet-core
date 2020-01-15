@@ -19,5 +19,9 @@ namespace Article.Managers.Abstracts
         bool UpdatePost(Post post);
 
         bool DeletePost(int id);
+
+        List<Post> ListActivePosts();
+        List<Post> ListPostsByUserId(int userId);
+        List<Post> ListPostsByCategoryId(int categoryId);
     }
 }

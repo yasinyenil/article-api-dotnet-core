@@ -35,18 +35,20 @@ namespace Article.Services.WebAPI.Controllers
         }
 
         [HttpGet, Route(template: "get-all-category")]
-        public List<Category> GetAllUser()
+        public IActionResult GetAllUser()
         {
             //Aslında burada DTO kullanmak gerekli ve map işleminin yapılması gerekli
             List<Category> users = this.managerCategory.ListCategory().ToList();
 
-            return users;
+            return Ok(users);
         }
 
         [HttpPost, Route(template: "update-category/{categoryId}")]
         public IActionResult UpdateCategory(int categoryId)
         {
-            bool returnedResult = this.managerCategory.UpdateCategory(categoryId);
+            var category = this.managerCategory.GetCategory(categoryId);
+
+            bool returnedResult = this.managerCategory.UpdateCategory(category);
             if (returnedResult)
             {
                 return Ok("Kullanici basarili bir sekilde güncellendi");

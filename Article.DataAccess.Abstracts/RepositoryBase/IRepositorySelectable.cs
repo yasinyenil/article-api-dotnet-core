@@ -18,6 +18,12 @@ namespace Article.DataAccess.Abstracts.RepositoryBase
         List<T> GetAllItems();
 
         /// <summary>
+        /// Herhangi bir sart olmadan tum kayitlari listeler.
+        /// </summary>
+        /// <returns></returns>
+        List<T> GetAllActiveItems();
+
+        /// <summary>
         /// Verilen Where Case degeri / degerlerine gore tum kayitlari listeler.
         /// </summary>
         /// <param name="predicate">Filtrele yapmak icin gerekli deger / degerler</param>

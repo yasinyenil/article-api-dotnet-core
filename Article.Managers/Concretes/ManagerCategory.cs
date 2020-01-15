@@ -92,7 +92,7 @@
             return this.UnitOfWork.RepositoryOfCategory.GetAllItems();
         }
         
-        public bool UpdateCategory(int id)
+        public bool UpdateCategory(Category category)
         {
             int numberOfRowsAffected = default(int);
 
@@ -100,8 +100,12 @@
             {
                 this.UnitOfWork.BeginTransaction();
 
-                var category = this.UnitOfWork.RepositoryOfCategory.GetItem(id);
-                this.UnitOfWork.RepositoryOfCategory.DeleteItem(category);
+                var updatedCategory = this.UnitOfWork.RepositoryOfCategory.GetItem(category.Id);
+
+                updatedCategory.ModifiedDate = DateTime.Now;
+                updatedCategory.Name = category.Name == null ? updatedCategory.Name : category.Name;
+
+                this.UnitOfWork.RepositoryOfCategory.UpdateItem(category);
 
                 numberOfRowsAffected = this.UnitOfWork.SaveChanges();
                 if (numberOfRowsAffected > 0)

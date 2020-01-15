@@ -8,6 +8,7 @@
     using System.Collections.Generic;
     using Article.Common.Helpers;
     using System;
+    using System.Linq;
     #endregion Internal Usings
 
     public class ManagerPost : BaseManager, IManagerPost
@@ -86,6 +87,7 @@
             });
         }
 
+        #region Select Methods
         public Post GetPost(int id)
         {
             return this.UnitOfWork.RepositoryOfPost.GetItem(id);
@@ -95,6 +97,22 @@
         {
             return this.UnitOfWork.RepositoryOfPost.GetAllItems();
         }
+
+        public List<Post> ListActivePosts()
+        {
+            return this.UnitOfWork.RepositoryOfPost.GetAllActiveItems();
+        }
+
+        public List<Post> ListPostsByUserId(int userId)
+        {
+            return this.UnitOfWork.RepositoryOfPost.GetAllItems(x=>x.UserId == userId).ToList();
+        }
+
+        public List<Post> ListPostsByCategoryId(int categoryId)
+        {
+            return this.UnitOfWork.RepositoryOfPost.GetAllItems(x => x.CategoryId == categoryId).ToList();
+        }
+        #endregion Select Methods
 
         public bool UpdatePost(Post updatedPost)
         {
@@ -175,6 +193,7 @@
             // TODO: uncomment the following line if the finalizer is overridden above.
             // GC.SuppressFinalize(this);
         }
+
         #endregion
     }
 

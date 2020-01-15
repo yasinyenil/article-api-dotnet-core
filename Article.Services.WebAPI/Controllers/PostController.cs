@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Article.Managers.Abstracts;
 using Article.Models.EntitiesOfProjects.Entities;
@@ -43,10 +44,23 @@ namespace Article.Services.WebAPI.Controllers
         public List<Post> GetAllPost()
         {
             //Aslında burada DTO kullanmak gerekli ve map işleminin yapılması gerekli
-            List<Post> posts = this.managerPost.ListPost().ToList();
+            List<Post> posts = this.managerPost.ListPost();
 
             return posts;
         }
+
+        [HttpGet, Route(template: "get-all-active-post")]
+        public IActionResult GetAllActivePost()
+        {
+            var post = this.managerPost.ListActivePosts();
+            if (post == null)
+            {
+                return NoContent();
+            }
+            return Ok(post);
+        }
+
+
 
         [HttpPost, Route(template: "update-post")]
         public IActionResult UpdatePost(Post post)
@@ -101,6 +115,16 @@ namespace Article.Services.WebAPI.Controllers
             }
         }
 
+        [HttpGet, Route(template: "get-posts-by-userid/{userId}")]
+        public List<Post> GetPostsByUserId(int userId)
+        {
+            return this.managerPost.ListPostsByUserId(userId);
+        }
 
+        [HttpGet, Route(template: "get-posts-by-categoryid/{categoryid}")]
+        public IActionResult GetPostsByCategoryId(int categoryid)
+        {
+            return Ok(this.managerPost.ListPostsByCategoryId(categoryid));
+        }
     }
 }
