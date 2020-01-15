@@ -20,11 +20,13 @@ Body:
 ### Kullanılan Tasarım Desenleri
 - Generic Repository (CRUD işlemlerinin yapıldığı yerdir. Tip bağımsız halde çalışır.)
 - UnitOfWork (Tüm repositorilerin tek bir noktadan kontrol edilebilir olması ve database işlemlerindeki değişikliklerin kontrolü sağlanır.)
-- Singleton (Genellikle veri tabanı bağlantılarını veya gerekli sınıfların üretilmesi konusunda tekillik sağlar. Sınıfın yalnızca bir örneğinin oluşmasını sağlamak için kullanılır.)
+- Singleton (Genellikle veri tabanı bağlantılarını veya gerekli sınıfların üretilmesi konusunda tekilliği sağlar. Sınıfın yalnızca bir örneğinin oluşmasını sağlamak için kullanılır.)
+- Facade ( Farklı işlemler yapan alt sınıflara doğrudan ulaşmak yerine Facade aracılığı ile soyutlayarak tüm alt sınıfları tek bir yerden ulaşılabilir hale getirmek için kullanılır.) 
+- Abstract Factory (Birbirinden farklı ama ilişki nesneleri, soyut bir ortamda üretilmesini sağlayan bir desendir.)
 
 #### Kullanılan Teknoloji ve Frameworks
 - .Net Core 2.2 web Api, Entity Framework Core, Newtonsoft.json (De/Serialization), .Net Core Dependency Injection
-Yaklaşık 1 senedir .Net Core, EF Core ile projeler yapıldı. Loyalty uygulamaları, İç uygulamalar, e-commerce (nop-commerce) gibi projelerde geliştirmelerde kullandım. Örnek amaçlı bu proje github'a konmuştur.
+Yaklaşık 1 senedir .Net Core, EF Core ile projeler yaptım. Loyalty uygulamaları, İç uygulamalar, e-commerce (nop-commerce) gibi projelerde geliştirmelerde kullandım. Örnek amaçlı bu proje github'a konmuştur.
 
 #### Eklenecek Diğer Özellikler
 - JWT Token, Logger (NLog veya Log4Net), Mapper (Auto mapper veya manuel olarak yapılacak)
