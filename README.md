@@ -3,7 +3,9 @@
 Sql scripti eklenmiştir. Örnek 4-5 tane data vardır.
 
 Örnek Sorgu: Post oluşturmak için
+
 URL: {your localhost}/api/post/new-post
+
 Body:
 ```json
 {
